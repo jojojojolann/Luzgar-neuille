@@ -61,7 +61,7 @@ Les en-têtes doivent être mises à jour sur chaque monde. Pour cela :
 - Inspectez l'élément de la page de la ville sur Grepolis (f12 sur Windows)
 - Allez dans l'onglet "Réseau"
 - Ouvrez le marché et l'option "échange d'or" dans le jeu
-- Sélectionnez la ligne "https://fr166.grepolis.com/game/frontend_bridge?
+- Sélectionnez la ligne "https://fr166.grepolis.com/game/frontend_bridge?" dans Réseaux
   
 Les valeurs à modifier se trouvent dans les : en-têtes de requête > cookie. Il s'agit de :
 - H
