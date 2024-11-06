@@ -17,7 +17,7 @@
    npm install
    ```
 
-3. **Lancez le script** pour commencer à surveiller les ressources de la ville :
+3. **Lancez le script** après avoir adapter le code à votre ville (voir ci-dessous) :
 
    ```bash
    node main.js
