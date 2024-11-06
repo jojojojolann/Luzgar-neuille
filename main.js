@@ -72,10 +72,12 @@ async function start() {
 
     // Liste des villes et check gold
     const data = await fetchTownData();  // Changez l'ID de la ville (BBCode)
-    checkGold(data, );                    // Changez le numéro de la mer
+    console.log(`Récupération des données pour la ville ${data.json.sea_id}...`);
+    checkGold(data, 45);                 // Changez le numéro de la mer
     
-    // const data55 = await fetchTownData(422);
-    // checkGold(data55, 55);
+    // const data55 = await fetchTownData();
+    // console.log(`Récupération des données pour la ville ${data.json.sea_id}...`);
+    // checkGold(data, 55);
 
     console.log("Attente de 5 secondes...");
     await sleep(3 * SECONDS);
