@@ -54,7 +54,7 @@ async function fetchTownData(townId) {
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-origin",
       "x-requested-with": "XMLHttpRequest",
-      "cookie": "cid=887926458; ig_conv_last_site=https://fr166.grepolis.com/game/index; metricsUvId=6ca28653-e4a6-4670-8df1-a0a534112e4f; _gid=GA1.2.1763335869.1727852016; sid=wcksssswg8ooow4gwogcw4socgw8cwo08wogk0cgwgc00wgooksswgow8ocw4088; logged_in=false; toid=429; _ga_6WS52Q38JB=GS1.1.1728024196.503.1.1728027917.0.0.0; _ga=GA1.1.1643095463.1716331082; _gat_UA-6635454-10=1",
+      "cookie": `cid=887926458; ig_conv_last_site=https://fr166.grepolis.com/game/index; metricsUvId=6ca28653-e4a6-4670-8df1-a0a534112e4f; _gid=GA1.2.1763335869.1727852016; sid=wcksssswg8ooow4gwogcw4socgw8cwo08wogk0cgwgc00wgooksswgow8ocw4088; logged_in=false; toid=${townId}; _ga_6WS52Q38JB=GS1.1.1728024196.503.1.1728027917.0.0.0; _ga=GA1.1.1643095463.1716331082; _gat_UA-6635454-10=1`,
       "Referer": "https://fr166.grepolis.com/game/index?login=1&p=4096461&ts=1704615771",
       "Referrer-Policy": "strict-origin-when-cross-origin"
     }
@@ -62,15 +62,21 @@ async function fetchTownData(townId) {
   if (!response.ok) {
     throw new Error(`Erreur lors de la récupération des données: ${response.statusText}`);
   }
+
   return await response.json();
 }
 
 async function start() {
   try {
     console.log("Recherche de gold...");
-    const data45 = await fetchTownData(429);
 
-    checkGold(data45, 45);
+    // Liste des villes et check gold
+    const data = await fetchTownData();  // Changez l'ID de la ville (BBCode)
+    checkGold(data, );                    // Changez le numéro de la mer
+    
+    // const data55 = await fetchTownData(422);
+    // checkGold(data55, 55);
+
     console.log("Attente de 5 secondes...");
     await sleep(3 * SECONDS);
     start();
