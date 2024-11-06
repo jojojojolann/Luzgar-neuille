@@ -8,7 +8,7 @@ function sleep(ms) {
 }
 
 const H = '11afc74d1fa5d4a8ccb1930f999f87732200f2da';
-const SECONDS = 10000;
+const SECONDS = 5000;
 
 function checkGold(data, mer) {
   if (data.json) {
@@ -71,7 +71,7 @@ async function start() {
     const data45 = await fetchTownData(429);
 
     checkGold(data45, 45);
-
+    console.log("Attente de 5 secondes...");
     await sleep(3 * SECONDS);
     start();
   } catch (error) {
