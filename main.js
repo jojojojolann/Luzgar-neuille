@@ -46,12 +46,6 @@ async function fetchTownData(townId) {
     headers: {
       "accept": "text/plain, */*; q=0.01",
       "accept-language": "fr,fr-FR;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-      "sec-ch-ua": "\"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"130\", \"Google Chrome\";v=\"130\"",
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-platform": "\"Windows\"",
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-origin",
       "x-requested-with": "XMLHttpRequest",
       "cookie": `cid=887926458; ig_conv_last_site=https://fr166.grepolis.com/game/index; metricsUvId=6ca28653-e4a6-4670-8df1-a0a534112e4f; _gid=GA1.2.1763335869.1727852016; sid=wcksssswg8ooow4gwogcw4socgw8cwo08wogk0cgwgc00wgooksswgow8ocw4088; logged_in=false; toid=${townId}; _ga_6WS52Q38JB=GS1.1.1728024196.503.1.1728027917.0.0.0; _ga=GA1.1.1643095463.1716331082; _gat_UA-6635454-10=1`,
       "Referer": "https://fr166.grepolis.com/game/index?login=1&p=849068155&ts=1730876651",
@@ -69,7 +63,7 @@ async function start() {
     console.log("Recherche de gold...");
 
     // Liste des villes et check gold
-    const data45 = await fetchTownData(429);
+    const data45 = await fetchTownData(613);
     console.log(`Récupération des données pour la ville ${data45.json.sea_id}...`);
     checkGold(data45, 45);
     
