@@ -8,7 +8,7 @@ function sleep(ms) {
 }
 
 const H = '11afc74d1fa5d4a8ccb1930f999f87732200f2da';
-const SECONDS = 5000;
+const SECONDS = 1000;
 
 function checkGold(data, mer) {
   if (data.json) {
@@ -42,7 +42,6 @@ function checkGold(data, mer) {
 }
 
 async function fetchTownData(townId) {
-  console.log(`Récupération des données pour la ville ${townId}...`);
   const response = await fetch(`https://fr166.grepolis.com/game/frontend_bridge?town_id=${townId}&action=execute&h=${H}&json={"model_url":"PremiumExchange","action_name":"read","town_id":${townId},"nl_init":true}`, {
     headers: {
       "accept": "text/plain, */*; q=0.01",
@@ -55,14 +54,13 @@ async function fetchTownData(townId) {
       "sec-fetch-site": "same-origin",
       "x-requested-with": "XMLHttpRequest",
       "cookie": `cid=887926458; ig_conv_last_site=https://fr166.grepolis.com/game/index; metricsUvId=6ca28653-e4a6-4670-8df1-a0a534112e4f; _gid=GA1.2.1763335869.1727852016; sid=wcksssswg8ooow4gwogcw4socgw8cwo08wogk0cgwgc00wgooksswgow8ocw4088; logged_in=false; toid=${townId}; _ga_6WS52Q38JB=GS1.1.1728024196.503.1.1728027917.0.0.0; _ga=GA1.1.1643095463.1716331082; _gat_UA-6635454-10=1`,
-      "Referer": "https://fr166.grepolis.com/game/index?login=1&p=4096461&ts=1704615771",
+      "Referer": "https://fr166.grepolis.com/game/index?login=1&p=849068155&ts=1730876651",
       "Referrer-Policy": "strict-origin-when-cross-origin"
     }
   });
   if (!response.ok) {
     throw new Error(`Erreur lors de la récupération des données: ${response.statusText}`);
   }
-
   return await response.json();
 }
 
@@ -71,16 +69,24 @@ async function start() {
     console.log("Recherche de gold...");
 
     // Liste des villes et check gold
-    const data = await fetchTownData();  // Changez l'ID de la ville (BBCode)
-    console.log(`Récupération des données pour la ville ${data.json.sea_id}...`);
-    checkGold(data, 45);                 // Changez le numéro de la mer
+    const data45 = await fetchTownData(429);
+    console.log(`Récupération des données pour la ville ${data45.json.sea_id}...`);
+    checkGold(data45, 45);
     
-    // const data55 = await fetchTownData();
-    // console.log(`Récupération des données pour la ville ${data.json.sea_id}...`);
-    // checkGold(data, 55);
+    const data55 = await fetchTownData(422);
+    console.log(`Récupération des données pour la ville ${data55.json.sea_id}...`);
+    checkGold(data55, 55);
+
+    const data75 = await fetchTownData(2831);
+    console.log(`Récupération des données pour la ville ${data75.json.sea_id}...`);
+    checkGold(data75, 75);
+
+    const data74 = await fetchTownData(4007);
+    console.log(`Récupération des données pour la ville ${data74.json.sea_id}...`);
+    checkGold(data74, 74);
 
     console.log("Attente de 5 secondes...");
-    await sleep(3 * SECONDS);
+    await sleep(5 * SECONDS);
     start();
   } catch (error) {
     console.error("Erreur dans le processus:", error);
