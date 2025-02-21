@@ -54,6 +54,3 @@ Le script commencera à récupérer les données de la ville et vérifiera les s
 - **sleep(ms)** : Fonction pour attendre pendant un certain nombre de millisecondes avant de relancer le processus.
 - **start()** : Fonction principale qui démarre le processus de récupération des données et de vérification des stocks.
 
-## Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
